@@ -1,0 +1,24 @@
+.Header {
+  display: flex;
+  justify-content: center;
+}
+
+.Menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Teams {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Players {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
