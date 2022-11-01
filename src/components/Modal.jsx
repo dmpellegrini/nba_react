@@ -6,23 +6,30 @@ import { useLocation } from 'react-router-dom'
 
 function Modal(props) {
   const location = useLocation()
-  const [ player, setPlayer ] = useState([])
-  const url = `https://nbaapi-production.up.railway.app/players/Baker`
+  const [ player, setPlayer ] = useState({})
+  const url = `https://nbaapi-production.up.railway.app/players/${props.lastName}`
   const fetchPlayer = async () => {
     const response = await axios(url)
-    setPlayer(response.data)
+    const playerData = response.data[0]
+    const { first_name, last_name, team, position } = playerData
+    const teamName = team.full_name
+    setPlayer({
+      first_name,
+      last_name,
+      teamName,
+      position,
+    })
   }
 
-  useEffect(() => { fetchPlayer() }, [location])
-  console.log(player)
+  useEffect(() => { fetchPlayer(); console.log('yo')},[location])
 
   return (
     <div className="Modal-Show">
       <h2>Player Info</h2>
       <ul>
-        <li>Name: {player[0].first_name} {player[0].last_name}</li>
-        <li>Team: {player[0].team.full_name}</li>
-        <li>Position: {player[0].position}</li>
+        <li>Name: {player.first_name} {player.last_name}</li>
+        <li>Team: {player.teamName}</li>
+        <li>Position: {player.position}</li>
       </ul>
     </div>
   );

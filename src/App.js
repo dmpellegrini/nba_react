@@ -1,11 +1,18 @@
 import './App.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Teams from './components/Teams.jsx'
 import Players from './components/Players.jsx'
 import Modal from './components/Modal.jsx'
 
 
 function App() {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('submitted')
+
+  }
+
+  const [ lastName, setLastName ] = useState('')
   return (
     <div className="App">
       <div className="Header">
@@ -22,7 +29,7 @@ function App() {
           />
         </form>
       </div>
-      <Modal />
+      <Modal lastName="Baker"/>
       <div className="Menu">
         <div className="Teams">
           <h2>Teams</h2>
