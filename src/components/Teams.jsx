@@ -21,7 +21,7 @@ function Teams(props) {
         teams.map((team, index) => {
           if (team.full_name !== undefined) {
             return (
-              <li key={index}>{team.full_name}</li>
+              <li key={index}>{team.full_name}, {team.abbreviation}</li>
             )
           }
         })
