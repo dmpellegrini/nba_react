@@ -21,8 +21,9 @@ function App() {
   return (
     <div className="App">
       <div className="Header">
-        <h1>TONY'S NBA LEAGUE INFO!</h1>
+        <h1>TONY'S NBA LEAGUE INFO!</h1><img id='nbaLogo' src='https://pngimg.com/uploads/nba/nba_PNG2.png'/>
       </div>
+        
       <div className="FormContainer">
         <form onSubmit={handleSubmit}>
           <input type="submit" value="Search Player"/>
@@ -35,7 +36,6 @@ function App() {
           />
         </form>
       </div>
-      <Modal lastName={playerName}/>
       <div className="Menu">
         <div className="Teams">
           <h2>Teams</h2>
@@ -43,6 +43,7 @@ function App() {
             <Teams />
           </ul>
         </div>
+        <Modal lastName={playerName}/>
         <div className="Players">
           <h2>Players</h2>
           <ul>
