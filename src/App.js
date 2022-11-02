@@ -3,17 +3,27 @@ import { useState, useEffect } from 'react'
 import Teams from './components/Teams.jsx'
 import Players from './components/Players.jsx'
 import Modal from './components/Modal.jsx'
+import TeamModal from './components/TeamModal.jsx'
 
 
 function App() {
   const [ lastName, setLastName ] = useState('')
   const [ playerName, setPlayerName ] = useState('')
+  const [ abbreviation, setAbbreviation ] = useState('')
+  const [ teamName, setTeamName ] = useState('')
   const handleName = (e) => {
     return setLastName(e.target.value)
   }
-  const handleSubmit = (e) => {
+  const handleTeam = (e) => {
+    return setAbbreviation(e.target.value)
+  }
+  const handlePlayerSubmit = (e) => {
     e.preventDefault()
     return setPlayerName(e.target.playerName.value)
+  }
+  const handleTeamSubmit = (e) => {
+    e.preventDefault()
+    return setTeamName(e.target.teamName.value)
   }
 
   useEffect(() => console.log(""),[playerName])
@@ -25,7 +35,17 @@ function App() {
       </div>
         
       <div className="FormContainer">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleTeamSubmit}>
+          <input type="submit" value="Search Team"/>
+          <input 
+            type="text"
+            value={abbreviation}
+            onChange={handleTeam}
+            id="teamName"
+            placeholder="Team's Abbreviation"
+          />
+        </form>
+        <form onSubmit={handlePlayerSubmit}>
           <input type="submit" value="Search Player"/>
           <input 
             type="text"
@@ -43,6 +63,7 @@ function App() {
             <Teams />
           </ul>
         </div>
+        <TeamModal abbreviation={teamName}/>
         <Modal lastName={playerName}/>
         <div className="Players">
           <h2>Players</h2>

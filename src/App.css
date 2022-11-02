@@ -18,9 +18,14 @@
   margin: 50px;
 }
 
+form{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .Menu {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .Modal-Show {
