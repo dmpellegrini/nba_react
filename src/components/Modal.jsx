@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 function Modal(props) {
+  console.log(props.lastName)
   const location = useLocation()
   const [ player, setPlayer ] = useState({})
   const url = `https://nbaapi-production.up.railway.app/players/${props.lastName}`
@@ -21,7 +22,7 @@ function Modal(props) {
     })
   }
 
-  useEffect(() => { fetchPlayer(); console.log('yo')},[location])
+  useEffect(() => { fetchPlayer(); console.log('yo')},[props.lastName])
 
   return (
     <div className="Modal-Show">

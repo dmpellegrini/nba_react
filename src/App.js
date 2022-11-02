@@ -6,30 +6,36 @@ import Modal from './components/Modal.jsx'
 
 
 function App() {
+  const [ lastName, setLastName ] = useState('')
+  const [ playerName, setPlayerName ] = useState('')
+  const handleName = (e) => {
+    return setLastName(e.target.value)
+  }
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('submitted')
-
+    return setPlayerName(e.target.playerName.value)
   }
 
-  const [ lastName, setLastName ] = useState('')
+  useEffect(() => console.log(""),[playerName])
+
   return (
     <div className="App">
       <div className="Header">
         <h1>TONY'S NBA LEAGUE INFO!</h1>
       </div>
       <div className="FormContainer">
-        <form>
+        <form onSubmit={handleSubmit}>
           <input type="submit" value="Search Player"/>
           <input 
             type="text"
-            name="playerName"
+            value={lastName}
+            onChange={handleName}
             id="playerName"
             placeholder="Player's Last Name"
           />
         </form>
       </div>
-      <Modal lastName="Baker"/>
+      <Modal lastName={playerName}/>
       <div className="Menu">
         <div className="Teams">
           <h2>Teams</h2>
