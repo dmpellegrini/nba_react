@@ -1,10 +1,15 @@
-# Getting Started with Create React App
+# This Is The Front End For Tony Wu's NBA API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was sourced from Tony Wu's ([github.com/tonywuhoo](https://github.com/tonywuhoo)'s) [NBA API](https://nbaapi-production.up.railway.app/)
 
-## Available Scripts
+His API was sourced from [This API](https://www.balldontlie.io/#introduction)
 
-In the project directory, you can run:
+## Featureset 
+
+-- The endpoints of the API are simple so the front end is also simple
+-- The "Teams" endpoint simply provided the names cities and conferences of all the nba teams
+-- The "Players" endpoint provided the names teams and positions of all the players
+
 
 ### `npm start`
 
